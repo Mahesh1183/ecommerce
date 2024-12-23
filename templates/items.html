@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Item</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(120deg, #89f7fe, #66a6ff);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        form {
+            background: #fff;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+        }
+
+        form input, form select, form button {
+            width: 100%;
+            margin-bottom: 1rem;
+            padding: 10px;
+            font-size: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        form input:focus, form select:focus {
+            outline: none;
+            border-color: #66a6ff;
+            box-shadow: 0 0 5px rgba(102, 166, 255, 0.5);
+        }
+
+        form button {
+            background: #66a6ff;
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        form button:hover {
+            background: #89f7fe;
+        }
+
+        form button:active {
+            transform: scale(0.98);
+        }
+
+        form h2 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <form method="POST" action="" enctype="multipart/form-data">
+        <h2>Add Item</h2>
+        <input name="name" placeholder="Enter item Name" type="text" required>
+        <input name="description" placeholder="Enter item Description" type="text" required>
+        <input type="file" name="image">
+        <input name="quantity" placeholder="Enter item Quantity" type="text" required>
+        <select name="category" required>
+            <option value="electronics">Electronics</option>
+            <option value="grocery">Grocery</option>
+            <option value="fashion">Fashion</option>
+            <option value="home">Home</option>
+        </select>
+        <input name="price" placeholder="Enter item Price" type="text" required>
+        <button type="submit">Add Item</button>
+    </form>
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #6a11cb, #2575fc);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        form {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            width: 300px;
+        }
+        input[type="text"], button {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+        input[type="text"] {
+            background-color: #f3f3f3;
+            outline: none;
+            transition: box-shadow 0.3s ease;
+        }
+        input[type="text"]:focus {
+            box-shadow: 0 0 5px rgba(81, 203, 238, 1);
+        }
+        button {
+            background: linear-gradient(135deg, #6a11cb, #2575fc);
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.2s ease, background 0.3s ease;
+        }
+        button:hover {
+            transform: scale(1.05);
+            background: linear-gradient(135deg, #2575fc, #6a11cb);
+        }
+    </style>
+</head>
+<body>
+    <form method="POST" action="">
+        <h1>user Login</h1>
+        <input name="username" type="text" placeholder="Username" id="">
+        <input name="password" type="text" placeholder="Password" id="">
+        <button type="submit">Login</button>
+    </form>
+    <!-- <form method="POST" action="">
+        <h1>Admin Login</h1>
+        <input name="username" type="text" placeholder="Username" id="">
+        <input name="password" type="text" placeholder="Password" id="">
+        <button type="submit">Login</button>
+    </form> -->
+</body>
+</html>

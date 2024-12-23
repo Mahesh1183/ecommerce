@@ -1,0 +1,35 @@
+{% extends 'homepage.html' %}
+{% block content %}
+<h2>Your Cart</h2>
+{% if items=='empty' %}
+<p>No products added to cart.</p>
+{% else %}
+<table>
+    <thead>
+        <tr>
+            <th>Image</th>
+            <th>Name</th>
+            <th>Category</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>Total</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for key,value in items.items() %}
+    <tr>
+        <td><img src="{{url_for('static',filename=value[3])}}" alt="{{value[0]}}" height="100px"></td>
+        <td>{{ value[0] }}</td>
+        <td>{{ value[4]}}</td>
+        <td> ₹{{ value[1]}}</td>
+        <td>{{ value [2]}}</td>
+        <td> ₹{{ value[1] | int * value[2] }}</td>
+        <td><a href="{{url_for('cartpop',itemid=key)}}"><button>Remove</button></a></td>
+
+    </tr>
+    {% endfor %}
+</tbody>
+</table>
+{% endif %}
+{% endblock %}

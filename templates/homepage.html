@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Ecommerce Website</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/static/home.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <script src="https://kit.fontawesome.com/bbb01d58cc.js" crossorigin="anonymous"></script>
+</head>
+<body class="def">
+  
+<!-- Navbar -->
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#" id="go">
+        <img src="https://img.icons8.com/cotton/256/online-order.png" class="stylinglogo" alt="Logo">
+      </a>
+    </div>
+    <ul class="nav navbar-nav" id="go">
+      <li class="nav-item"><a href="#" id="go"><i class="fa-solid fa-house"></i> Home</a></li>
+      <li class="nav-item"><a href="#" id="go"><i class="fa-sharp fa-solid fa-square-phone"></i> Contact Us</a></li>
+      <li class="nav-item"><a href="/viewcart" id="go"><i class="fa-sharp fa-solid fa-cart-shopping"></i> Cart</a></li>
+      <li class="dropdown nav-item">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="go">Category <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li id="go"><a href="{{url_for('category',category='electronics')}}" id="go">Electronics</a></li>
+          <li id="go"><a href="{{url_for('category',category='fashion')}}" id="go">Fashion</a></li>
+          <li id="go"><a href="{{url_for('category',category='grocery')}}" id="go">Groceries</a></li>
+          <li id="go"><a href="{{url_for('category',category='home')}}" id="go">Home & Kitchen</a></li>
+        </ul>
+      </li>
+      {% if not session.get('user') %}
+      <li class="nav-item"><a href="{{ url_for('register') }}" id="go"><i class="fa-solid fa-user-plus"></i> Signup</a></li>
+      <li class="nav-item"><a href="{{ url_for('login') }}" id="go"><i class="fa-solid fa-right-to-bracket"></i> Login</a></li>
+      {% else %}
+      <li class="nav-item"><a href="#" id="go"><i class="fa-solid fa-money-bill-trend-up"></i> Orders</a></li>
+      <li class="nav-item"><a href="{{ url_for('logout') }}" id="go"><i class="fa-solid fa-arrow-left"></i> Logout</a></li>
+      {% endif %}
+    </ul>
+  </div>
+</nav>
+
+<!-- Flash Messages -->
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <div class="alert alert-info text-center">
+      {% for message in messages %}
+        <strong>{{ message }}</strong><br>
+      {% endfor %}
+    </div>
+  {% endif %}
+{% endwith %}
+{% block content %}
+{% endblock %}
+<!-- Page Content -->
+<div class="bgimg text-center">
+  <h1 class="head1">Shop with your Choice</h1>
+  <p class="paraline">Better & Faster</p>
+</div>
+
+<div class="bgcolor pt-5 pb-5">
+  <div class="container">
+    <div class="row">
+      <!-- Fashion Card -->
+      <div class="col-12 col-md-3">
+        <div class="carding p-3">
+          <img src='https://d1csarkz8obe9u.cloudfront.net/posterpreviews/fashion-logo%2C-boutique-center-logo-design-template-465c7b2bbc3c75f0c97144444bb8cbdf_screen.jpg?ts=1664981117' class="cardimage" alt="Fashion">
+          <h1 class="chead">Fashion</h1>
+          <a href="#" id="go">View more <i class="fa-solid fa-arrow-right"></i></a>
+          <p class="cpara">Shop latest Fashion</p>
+        </div>
+      </div>
+
+      <!-- Home Appliances Card -->
+      <div class="col-12 col-md-3">
+        <div class="carding p-3">
+          <img src="https://imgnew.outlookindia.com/uploadimage/library/16_9/16_9_5/IMAGE_1672213252.jpg" class="cardimage" alt="Home Appliances">
+          <h1 class="chead">Home Appliances</h1>
+          <a href="#" id="go">View more <i class="fa-solid fa-arrow-right"></i></a>
+          <p class="cpara">Shop for your home</p>
+        </div>
+      </div>
+
+      <!-- Grocery Card -->
+      <div class="col-12 col-md-3">
+        <div class="carding p-3">
+          <img src="https://hips.hearstapps.com/hmg-prod/images/hungryroot-1658507018.png" class="cardimage" alt="Grocery">
+          <h1 class="chead">Grocery</h1>
+          <a href="#" id="go">View more <i class="fa-solid fa-arrow-right"></i></a>
+          <p class="cpara">Shop Grocery</p>
+        </div>
+      </div>
+
+      <!-- Electronics Card -->
+      <div class="col-12 col-md-3">
+        <div class="carding p-3">
+          <img src="https://img.icons8.com/cotton/256/online-order.png" class="cardimage" alt="Electronics">
+          <h1 class="chead">Electronics</h1>
+          <a href="#" id="go">View more <i class="fa-solid fa-arrow-right"></i></a>
+          <p class="cpara">Shop all latest Portable Devices</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- JS Scripts -->
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+</body>
+</html>
