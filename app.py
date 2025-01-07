@@ -10,12 +10,17 @@ from adminotp import adotp
 import os
 RAZORPAY_KEY_ID='rzp_test_rnAwL12OAsSYxV'
 RAZORPAY_KEY_SECRET=''
-mydb=mysql.connector.connect(
-    host='localhost',
-    user='root',
-    password='root',
-    database='ecommerce'
-)
+db=os.environ['RDS_DB_NAME']
+user=os.environ['RDS_USERNAME']
+password=os.environ['RDS_PASSWORD']
+host=os.environ['RDS_HOSTNAME']
+port=os.environ['RDS_PORT']
+# mydb=mysql.connector.connect(
+#     host='localhost',
+#     user='root',
+#     password='root',
+#     database='ecommerce'
+# )
 app=Flask(__name__)
 app.secret_key='hfbfe78hjefk'
 @app.route('/')
